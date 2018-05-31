@@ -1,0 +1,12 @@
+﻿using System;
+using SQLite;
+
+namespace EmeciGallery.Models
+{
+    public class Token
+    {
+
+		
+
+    }
+}

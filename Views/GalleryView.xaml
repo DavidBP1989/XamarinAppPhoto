@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="EmeciGallery.Views.GalleryView"
+    xmlns:custom="clr-namespace:EmeciGallery.Controls;assembly=EmeciGallery"
+    Title="Galeria"
+    x:Name="ThePage">
+
+	<ContentPage.Content>
+        
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="128" />
+                <!--<RowDefinition Height="Auto" />-->
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            <Image
+                HorizontalOptions="FillAndExpand"
+                VerticalOptions="FillAndExpand"
+                Source="{Binding PreviewImage}"
+                Aspect="AspectFill"
+                Grid.Row="0">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TotalImage}" />
+                </Image.GestureRecognizers>
+            </Image>
+
+            <Label 
+                IsVisible="{Binding NoImages}" 
+                HorizontalOptions="CenterAndExpand" 
+                VerticalOptions="CenterAndExpand" 
+                FontSize="15"
+                Text="Galería vacia" Grid.Row="0"></Label>
+
+            <custom:ImageGallery
+                ItemsSource="{Binding Images}"
+                Grid.Row="1">
+                <custom:ImageGallery.ItemTemplate>
+                    <DataTemplate>
+                        <Image
+                            Source="{Binding Source}"
+                            HorizontalOptions="Start"
+                            VerticalOptions="FillAndExpand"
+                            Aspect="AspectFit">
+                            <Image.GestureRecognizers>
+                                <TapGestureRecognizer
+                                    Command="{Binding Path=BindingContext.PreviewImageCommand, Source={x:Reference ThePage}}"
+                                    CommandParameter="{Binding ImageId}" />
+                            </Image.GestureRecognizers>
+                        </Image>
+                    </DataTemplate>
+                </custom:ImageGallery.ItemTemplate>
+            </custom:ImageGallery>
+
+            
+            <!--<Grid Grid.Row="2">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto" />
+                    <ColumnDefinition Width="Auto" />
+                </Grid.ColumnDefinitions>
+
+                <ActivityIndicator
+                    Margin="70,0,0,0"
+                    HorizontalOptions="CenterAndExpand"
+                    Grid.Column="0"
+                    IsVisible="{Binding IsLoadingImage}" 
+                    IsRunning="{Binding IsLoadingImage}" />
+
+                <Button
+                    HorizontalOptions="CenterAndExpand"
+                    Grid.Column="1"
+                    Margin="0,0,0,0"
+                    TextColor="Black"
+                    IsVisible="{Binding IsLoadingImage}"
+                    Text="{Binding TxtLoading}" />
+            </Grid>-->
+
+            <StackLayout 
+                Orientation="Horizontal" 
+                Grid.Row="2">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                </Grid>
+
+                <Button
+                    Grid.Column="0"
+                    IsEnabled="{Binding ReverseIsLoadingImage}"
+                    Text="Nueva fotografía"
+                    HorizontalOptions="CenterAndExpand"
+                    Command="{Binding CameraCommand}"/>
+                
+                <Button
+                    Grid.Column="1"
+                    IsEnabled="{Binding ReverseIsLoadingImage}"
+                    Text="Desde galería"
+                    Command="{Binding GalleryCommand}"
+                    HorizontalOptions="CenterAndExpand"/>
+            </StackLayout>
+           
+        </Grid>
+
+	</ContentPage.Content>
+    
+</ContentPage>

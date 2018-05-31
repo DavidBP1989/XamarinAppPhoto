@@ -1,0 +1,26 @@
+Function=xamarin_timezone_get_data
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/mscorlib.dll
+Function=xamarin_GetFolderPath
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/mscorlib.dll
+Function=xamarin_log
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/mscorlib.dll
+Function=CreateZStream
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+Function=CloseZStream
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+Function=Flush
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+Function=ReadZStream
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+Function=WriteZStream
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+Function=xamarin_start_wwan
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/System.dll
+Function=xamarin_get_block_descriptor
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/Xamarin.iOS.dll
+Function=xamarin_IntPtr_objc_msgSend_IntPtr
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/Xamarin.iOS.dll
+Function=xamarin_IntPtr_objc_msgSendSuper_IntPtr
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/Xamarin.iOS.dll
+Function=UIApplicationMain
+	/Users/david/Documents/Xamarin/XamarinApps/EmeciGallery/iOS/obj/iPhone/Release/mtouch-cache/Link/Xamarin.iOS.dll

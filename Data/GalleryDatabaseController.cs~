@@ -1,0 +1,169 @@
+﻿using System;
+using EmeciGallery.Interfaces;
+using SQLite;
+using Xamarin.Forms;
+
+namespace EmeciGallery.Data
+{
+    public class GalleryDatabaseController
+    {
+        static readonly object Locker = new object();
+        readonly SQLiteConnection SqliteDB;
+
+        public GalleryDatabaseController(string Type)
+        {
+			SqliteDB = DependencyService.Get<ISQLite>().GetConection();
+            switch(Type)
+            {
+                case "generales":
+                    SqliteDB.CreateTable<ImagenesGenerales>();
+                    break;
+                case "recetas":
+                    SqliteDB.CreateTable<Recetas>();
+                    break;
+				case "laboratorio":
+					SqliteDB.CreateTable<Laboratorio>();
+					break;
+				case "diagnosticos":
+					SqliteDB.CreateTable<Diagnosticos>();
+					break;
+				case "medicamentos":
+					SqliteDB.CreateTable<Medicamentos>();
+					break;
+				case "vacunas":
+					SqliteDB.CreateTable<Vacunas>();
+					break;
+            }
+        }
+
+        public int SaveGenerales(ImagenesGenerales DB)
+        {
+			lock (Locker)
+			{
+				if (DB.Id != 0)
+				{
+					SqliteDB.Update(DB);
+					return DB.Id;
+				}
+
+				return SqliteDB.Insert(DB);
+			}
+        }
+
+		public int SaveRecetas(Recetas DB)
+		{
+			lock (Locker)
+			{
+				if (DB.Id != 0)
+				{
+					SqliteDB.Update(DB);
+					return DB.Id;
+				}
+
+				return SqliteDB.Insert(DB);
+			}
+		}
+
+		public int SaveLaboratorio(Laboratorio DB)
+		{
+			lock (Locker)
+			{
+				if (DB.Id != 0)
+				{
+					SqliteDB.Update(DB);
+					return DB.Id;
+				}
+
+				return SqliteDB.Insert(DB);
+			}
+		}
+
+		public int SaveDiagnostico(Diagnosticos DB)
+		{
+			lock (Locker)
+			{
+				if (DB.Id != 0)
+				{
+					SqliteDB.Update(DB);
+					return DB.Id;
+				}
+
+				return SqliteDB.Insert(DB);
+			}
+		}
+
+		public int SaveMedicamento(Medicamentos DB)
+		{
+			lock (Locker)
+			{
+				if (DB.Id != 0)
+				{
+					SqliteDB.Update(DB);
+					return DB.Id;
+				}
+
+				return SqliteDB.Insert(DB);
+			}
+		}
+
+		public int SaveVacuna(Vacunas DB)
+		{
+			lock (Locker)
+			{
+				if (DB.Id != 0)
+				{
+					SqliteDB.Update(DB);
+					return DB.Id;
+				}
+
+				return SqliteDB.Insert(DB);
+			}
+		}
+    }
+
+
+
+
+
+
+
+    /*
+        db gallery
+    */
+
+    public class ImagenesGenerales
+    {
+        [PrimaryKey]
+        public int Id { get; set; }
+    }
+
+    public class Recetas
+    {
+		[PrimaryKey]
+		public int Id { get; set; }
+    }
+
+    public class Laboratorio
+    {
+		[PrimaryKey]
+		public int Id { get; set; }
+    }
+
+    public class Diagnosticos
+    {
+		[PrimaryKey]
+		public int Id { get; set; }
+    }
+
+    public class Medicamentos
+    {
+		[PrimaryKey]
+		public int Id { get; set; }
+    }
+
+    public class Vacunas
+    {
+		[PrimaryKey]
+		public int Id { get; set; }
+    }
+}

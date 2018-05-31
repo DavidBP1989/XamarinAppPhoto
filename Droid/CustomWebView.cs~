@@ -1,0 +1,11 @@
+﻿using System;
+namespace EmeciGallery.Droid
+{
+    public class CustomWebView
+    {
+        public CustomWebView()
+        {
+            
+        } 
+    }
+}

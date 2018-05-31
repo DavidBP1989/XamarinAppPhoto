@@ -1,0 +1,17 @@
+﻿using System;
+using SQLite;
+
+namespace EmeciGallery.Models
+{
+    public class Gallery
+    {
+        [PrimaryKey]
+        public int Id { get; set; }
+
+
+        public Gallery()
+        {
+            
+        }
+    }
+}

@@ -1,0 +1,15 @@
+﻿using System;
+
+using Xamarin.Forms;
+
+namespace EmeciGallery.Views
+{
+    public class PreviewPDFViewAndroid : ContentView
+    {
+        public PreviewPDFViewAndroid(string UrlImage)
+        {
+            Content = new Label { Text = "Hello ContentView" };
+        }
+    }
+}
+

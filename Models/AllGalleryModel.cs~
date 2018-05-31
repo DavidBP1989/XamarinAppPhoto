@@ -1,0 +1,11 @@
+﻿using System.Collections.Generic;
+
+namespace EmeciGallery.Models
+{
+    public class AllGalleryModel
+    {
+        public string Error_message { get; set; }
+        public bool Success { get; set; }
+        public List<string> Images { get; set; }
+    }
+}

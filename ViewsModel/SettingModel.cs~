@@ -1,0 +1,26 @@
+﻿using System.Collections.ObjectModel;
+
+namespace EmeciGallery.ViewsModel
+{
+    public class SettingModel
+    {
+        public ObservableCollection<SettingModel> Menu { get; set; }
+
+        public SettingModel()
+        {
+            LoadMenu();
+        }
+
+		void LoadMenu()
+		{
+            Menu = new ObservableCollection<SettingModel>();
+
+			Menu.Add(new SettingModel
+			{
+				Title = "Cerrar Sesión",
+				Action = "logout",
+				Icon = "iconlogout.png"
+			});
+		}
+    }
+}

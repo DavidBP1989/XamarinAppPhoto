@@ -1,0 +1,52 @@
+﻿using EmeciGallery.Interfaces;
+using EmeciGallery.Models;
+using SQLite;
+using Xamarin.Forms;
+
+namespace EmeciGallery.Data
+{
+    public class ImageDatabaseController
+    {
+        static object locker = new object();
+        SQLiteConnection database;
+
+        public ImageDatabaseController()
+        {
+			database = DependencyService.Get<ISQLite>().GetConection();
+			database.CreateTable<Gallery>();    
+        }
+
+		public Gallery GetTokenGallery()
+		{
+			lock (locker)
+			{
+				if (database.Table<Gallery>().Count() == 0) return null;
+
+				return database.Table<Gallery>().First();
+			}
+		}
+
+		public int Save(Gallery access)
+		{
+			lock (locker)
+			{
+				if (access.Id != 0)
+				{
+					database.Update(access);
+					return access.Id;
+				}
+
+				return database.Insert(access);
+			}
+		}
+
+
+		public int Delete(int id)
+		{
+			lock (locker)
+			{
+				return database.Delete<Gallery>(id);
+			}
+		}
+    }
+}

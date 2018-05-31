@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="EmeciGallery.Views.MainView"
+    Title="EMECI">
+
+
+
+    <StackLayout
+        VerticalOptions="FillAndExpand"
+        HorizontalOptions="FillAndExpand"
+        Orientation="Vertical">
+        
+        <ListView
+            RowHeight="112"
+            VerticalOptions="FillAndExpand"
+            BackgroundColor="Black"
+            SeparatorVisibility="None"
+            ItemsSource="{Binding Menu}">
+            
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout
+                            Orientation="Horizontal"
+                            Padding="25, 0, 0, 0"
+                            BackgroundColor="{Binding BackgroundColor}">
+
+                            <Grid
+                                HorizontalOptions="FillAndExpand">
+
+                                <Grid.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding NavigateCommand}"/>
+                                </Grid.GestureRecognizers>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+
+
+                                <Image 
+                                    Grid.Column="0"
+                                    Aspect="AspectFit"
+                                    VerticalOptions="CenterAndExpand"
+                                    HorizontalOptions="CenterAndExpand"
+                                    Source="{Binding Icon}" />
+                                
+                                <Label
+                                    TextColor="White"
+                                    Grid.Column="1"
+                                    Margin="20, 0, 0, 0"
+                                    VerticalOptions="CenterAndExpand"
+                                    Text="{Binding Title}" />
+
+                                <Image 
+                                    Grid.Column="2"
+                                    VerticalOptions="CenterAndExpand"
+                                    Margin="0, 0, 10, 0"
+                                    Aspect="AspectFit"
+                                    Source="{Binding Icon_Arrow}" />
+                            </Grid>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+    
+</ContentPage>

@@ -1,0 +1,12 @@
+﻿using Xamarin.Forms;
+
+namespace EmeciGallery.Views
+{
+    public partial class BasicPopupView
+    {
+        public BasicPopupView()
+        {
+            InitializeComponent();
+        }
+    }
+}

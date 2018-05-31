@@ -1,0 +1,61 @@
+﻿using System.Collections.ObjectModel;
+using EmeciGallery.Data;
+using EmeciGallery.Models;
+using Xamarin.Forms;
+
+namespace EmeciGallery.ViewsModel
+{
+    public class UserLoginViewModel
+    {
+        public ObservableCollection<UserLoginModel> ListUsers { get; set; }
+        const int MaxUsersByRow = 2;
+
+        public UserLoginViewModel()
+        {
+            var _Grid = new Grid();
+            var MyLabel = new Label();
+            MyLabel.Text = "wep";
+
+
+        }
+
+
+        /*public UserLoginViewModel()
+        {
+            ListUsers = new ObservableCollection<UserLoginModel>();
+
+            if (App.UsersDatabase.GetDB() != null)
+            {
+                int Row = 1;
+                int Count = 0;
+                ObservableCollection<DataUserLoginModel> UsersByRow = new ObservableCollection<DataUserLoginModel>();
+                foreach (Users User in App.UsersDatabase.GetDB())
+                {
+                    Count++;
+                    if (Row <= MaxUsersByRow)
+                    {
+                        UsersByRow.Add(new DataUserLoginModel()
+                        {
+                            Name = User.User_Name,
+                            Image = "https://www.emeci.com/PacienteMVCDemo/images/foto-bebe.png"
+                        });
+
+                        Row++;
+                    }
+
+                    if (Row == MaxUsersByRow || Count == App.UsersDatabase.GetDB().Count)
+                    {
+                        ListUsers.Add(new UserLoginModel()
+                        {
+                            Items = UsersByRow
+                        });
+
+                        if (Count != App.UsersDatabase.GetDB().Count)
+                            UsersByRow = new ObservableCollection<DataUserLoginModel>();
+                        Count = 0;
+                    }
+                }
+            }
+        }*/
+    }
+}

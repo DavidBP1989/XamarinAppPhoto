@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="EmeciGallery.Views.SettingView"
+    Icon="menu.png"
+    Title="Setting">
+
+    <StackLayout>
+
+        <Grid 
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand" 
+            BackgroundColor="#F5F5F5">
+            
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="100" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <StackLayout 
+                Grid.Row="0" 
+                Grid.Column="0"
+                Padding="15,60,20,15"
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand" 
+                BackgroundColor="#F5F5F5">
+
+                <Grid ColumnSpacing="5">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Image
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Aspect="AspectFill"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        HeightRequest="70"
+                        WidthRequest="70"
+                        Source="{Binding ImageProfile}" />
+                    
+                    <Label
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        TextColor="#418AE0"
+                        FontAttributes="Bold"
+                        FontSize="15"
+                        LineBreakMode="WordWrap"
+                        HorizontalOptions="StartAndExpand"
+                        VerticalOptions="StartAndExpand"
+                        Text="{Binding UserName}" />
+                </Grid>
+
+            </StackLayout>
+            <StackLayout 
+                Grid.Row="1" 
+                Grid.Column="0" 
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand" 
+                BackgroundColor="#F5F5F5">
+
+                <!--principal-->
+
+            </StackLayout>
+            <StackLayout 
+                Grid.Row="2" 
+
+                Grid.Column="0" 
+                HorizontalOptions="FillAndExpand" 
+                VerticalOptions="FillAndExpand" 
+                BackgroundColor="#F5F5F5">
+
+                <Label
+                    FontSize="14"
+                    TextColor="#CA6CBD"
+                    Opacity="0.75"
+                    HorizontalOptions="CenterAndExpand"
+                    VerticalOptions="CenterAndExpand"
+                    Text="Cerrar sesión">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Command="{Binding Logout}" />
+                    </Label.GestureRecognizers>
+                </Label>
+            </StackLayout>
+        </Grid>
+    </StackLayout>
+	
+</ContentPage>
